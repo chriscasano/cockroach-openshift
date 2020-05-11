@@ -8,7 +8,7 @@ alt="Watch the demo" width="300" height="180" border="5" /></a>
 
 ## Download & Install CRC
 
-This setup was conducted on a Mac.  Download load the HyperKit here.  You'll need a RedHat login to do so:
+This setup was conducted on a Mac.  Special thanks to Keith Mc for the assistance!  Here goes...Download load the HyperKit here.  You'll need a RedHat login to do so:
 
 https://cloud.redhat.com/openshift/install/crc/installer-provisioned
 
@@ -91,7 +91,7 @@ Once confirmed, you can exit out of the shell.
 
 Initialize the workload:
 
-`oc run -it --rm cockroach-client --image=cockroachdb/cockroach --restart=Never --command -- ./cockroach workload init movr "postgres://root@example-cockroachdb-0:26257/movr?sslmode=disable”`
+`oc run -it --rm cockroach-client --image=cockroachdb/cockroach --restart=Never --command -- ./cockroach workload init movr "postgres://root@example-cockroachdb-0:26257/movr?sslmode=disable"`
 
 Run the workload.  You can increase the duration and max rate below if you'd like.
 
