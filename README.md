@@ -81,7 +81,7 @@ Make sure you're on the cockroachdb project:
 
 Confirm you can run a cockroach client.  If the client doesn't connect initially, trying us the ip address of the pod instead of the hostname.
 
-`oc run -it --rm cockroach-client --image=cockroachdb/cockroach --restart=Never --command -- ./cockroach sql --insecure --host example-cockroachdb-0 --port=26257`
+`oc run -it --rm cockroach-client --image=cockroachdb/cockroach --restart=Never --command -- ./cockroach sql --insecure --host example-cockroachdb --port=26257`
 
 Once confirmed, you can exit out of the shell.
 
@@ -91,11 +91,11 @@ Once confirmed, you can exit out of the shell.
 
 Initialize the workload:
 
-`oc run -it --rm cockroach-client --image=cockroachdb/cockroach --restart=Never --command -- ./cockroach workload init movr "postgres://root@example-cockroachdb-0:26257/movr?sslmode=disable"`
+`oc run -it --rm cockroach-client --image=cockroachdb/cockroach --restart=Never --command -- ./cockroach workload init movr "postgres://root@example-cockroachdb:26257/movr?sslmode=disable"`
 
 Run the workload.  You can increase the duration and max rate below if you'd like.
 
-`oc run -it --rm cockroach-client --image=cockroachdb/cockroach --restart=Never --command -- ./cockroach workload run movr --duration=3m --tolerate-errors --max-rate=20 --concurrency=1 --display-every=5s "postgres://root@example-cockroachdb-0:26257/movr?sslmode=disable"`
+`oc run -it --rm cockroach-client --image=cockroachdb/cockroach --restart=Never --command -- ./cockroach workload run movr --duration=3m --tolerate-errors --max-rate=20 --concurrency=1 --display-every=10s "postgres://root@example-cockroachdb:26257/movr?sslmode=disable"`
 
 While the workload is running, kill node 3 and watch the database self heal.
 
