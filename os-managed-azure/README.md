@@ -1,4 +1,4 @@
-# Managed OpenShift on azure
+# Managed OpenShift on Azure
 
 The following scripts are compiled from here: https://docs.microsoft.com/en-us/azure/openshift/tutorial-create-cluster
 
